@@ -1,0 +1,75 @@
+// ------------------------------
+//　カラー
+// ------------------------------
+// ブランドカラー
+$color-primary: (
+  base: #F1001E,
+);
+
+// バリエーション（カテゴリーの色分けなど）
+$color-variation: (
+  01: #F8BF00,
+  02: #FF808C,
+  03: #40A939,
+  04: #41C3FF,
+  05: #2AA595,
+  06: #FF8200,
+  07: #FF2D6C,
+  08: #944FD1,
+);
+
+$color-variation-darker: (
+  01: #dca900,
+  02: #d96d77,
+  03: #399633,
+  04: #3aafe5,
+  05: #259183,
+  06: #eb7800,
+  07: #e52861,
+  08: #944FD1,
+);
+
+// モノクロ
+$color-neutral: (
+  lightest: #FFF,
+  lighter: #F3F3F3,
+  light: #D8D8D8,
+  base: #A7A7A7,
+  dark: #6E6E6E,
+  darkest: #1F1F1F,
+);
+
+$color-state: (
+  focus: #0089ff,
+  focus-submit: #00129c,
+  submit: #4a90e2,
+  submit-hover: #3f70b6,
+);
+
+$color-text: (
+  base: #1F1F1F,
+  base-lighter: #6E6E6E,
+  mute: #6E6E6E,
+  inverse: #FFF,
+);
+
+$color-bg: (
+  base: #FFF,
+  blog: #E3589B,
+  twitter: #0086C9,
+);
+
+// 各sns色
+$color-sns: (
+  twitter: #1DA1F2,
+  youtube: #E62D27,
+  facebook: #3b5998,
+  hatena: #00a1de,
+);
+
+// 各曜日の色
+$color-day: (
+  saturday: #4A90E2,
+  sunday: #D0021B,
+);
+

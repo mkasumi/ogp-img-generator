@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Attndr</title>
+  <link rel="stylesheet" href="/dest/bundle.min.css">
+  <script src="/dest/bundle.js"></script>
+</head>
+<body>
+
+  <h1>HTMLからOGPイメージを作るサンプル</h1>
+
+  <label><input type="radio" value="gradient">グラデーション</label>
+  <label><input type="radio" value="emoji">絵文字</label>
+
+<div id="target" class="c-img-ogp" style="background: linear-gradient(135deg, #ffaf02, #00ccff); color: #FFF;">
+  <h2 class="c-img-ogp__title">Frontend Nagoya #9</h2>
+  <p class="c-img-ogp__date">開催日時：2019年3月2日（土）15:00〜17:30</p>
+  <p class="c-img-ogp__place">場所：ベースキャンプ名古屋</p>
+</div>
+<br>
+<hr>
+  <h3>↓↓ここから画像↓↓　（上の対象のdivを画像化）</h3>
+  <img src="" id="result" class="c-preview" />
+  <h3>↑↑ここまで画像↑↑</h3>
+
+  <hr>
+
+  <a href="" id="ogp_image" download="ogp_image.png">スクリーンショット(#targetの範囲)をダウンロード</a>
+
+</body>
+</html>
