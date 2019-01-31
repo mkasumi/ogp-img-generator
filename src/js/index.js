@@ -24,7 +24,7 @@ var bg = function() {
         var textNode = document.createTextNode("🐶");
         ogpIcon.appendChild(textNode);
         ogpIcon.setAttribute('class','c-img-ogp__icon')
-        element.appendChild(ogpIcon);
+        ogpIconRow.appendChild(ogpIcon);
     }
     element.appendChild(ogpIconRow);
   }
