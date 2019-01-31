@@ -164,6 +164,10 @@ a:hover {
 	padding: 0;
 	list-style: none;
 }
+.c-img-ogp__bg-row li:nth-child(2n+1) {
+	position: relative;
+	left: 150px;
+}
 .c-img-ogp__icon {
 	display: inline;
 	margin: 0 100px;
