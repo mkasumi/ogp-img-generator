@@ -17,13 +17,17 @@ window.onload = function(){
 var bg = function() {
 	var element = document.getElementsByClassName('js-ogp-bg')[0];
 
-	for(var i = 1; i <= 5; i++){
-    var ogpIcon = document.createElement( "span" );
-    var textNode = document.createTextNode("🐶");
-    ogpIcon.appendChild(textNode);
-    ogpIcon.setAttribute('class','c-img-ogp__icon')
-    element.appendChild(ogpIcon);
-}
+  for (var i = 0; i < 5; i++){
+    var ogpIconRow = document.createElement( "li" );
+    for (var j = 0; j < 5; j++){
+        var ogpIcon = document.createElement( "span" );
+        var textNode = document.createTextNode("🐶");
+        ogpIcon.appendChild(textNode);
+        ogpIcon.setAttribute('class','c-img-ogp__icon')
+        element.appendChild(ogpIcon);
+    }
+    element.appendChild(ogpIconRow);
+  }
 
 };
 
