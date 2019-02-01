@@ -19,7 +19,7 @@ var bg = function() {
 
   for (var i = 0; i < 5; i++){
     var ogpIconRow = document.createElement( "li" );
-    for (var j = 0; j < 5; j++){
+    for (var j = 0; j < 4; j++){
         var ogpIcon = document.createElement( "span" );
         var textNode = document.createTextNode("🐶");
         ogpIcon.appendChild(textNode);
