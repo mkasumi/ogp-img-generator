@@ -1,4 +1,5 @@
 import html2canvas from '../../node_modules/html2canvas/dist/html2canvas.js';
+import Vue from '../../node_modules/vue/dist/vue.js';
 
 window.onload = function(){
  html2canvas(document.getElementById("target")).then(function(canvas) {
