@@ -51,7 +51,9 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		
+		li {
+			width: 1500px;
+		}
 		li:nth-child(2n) {
 			position: relative;
 			left: -150px;

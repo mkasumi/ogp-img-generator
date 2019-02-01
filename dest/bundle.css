@@ -164,6 +164,9 @@ a:hover {
 	padding: 0;
 	list-style: none;
 }
+.c-img-ogp__bg-row li {
+	width: 1500px;
+}
 .c-img-ogp__bg-row li:nth-child(2n) {
 	position: relative;
 	left: -150px;
