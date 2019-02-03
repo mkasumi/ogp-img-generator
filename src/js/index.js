@@ -1,6 +1,28 @@
 import html2canvas from '../../node_modules/html2canvas/dist/html2canvas.js';
 import Vue from '../../node_modules/vue/dist/vue.js';
 
+new Vue({
+ el: '#app',
+ data: {
+  newText: 'イヌかわいい',
+  newTextColor: '#F45C63',
+  newEmoji: '🐶',
+  newGradienColorStart: '#FFF',
+  newGradienColorEnd: '#F45C63'
+ },
+ methods: {
+  addText: function() {
+   if (!this.newText) {
+    return;
+   }
+   this.newText.push({
+     title: this.newText
+   });
+   this.newText = "";
+  }
+ }
+});
+
 window.onload = function(){
  html2canvas(document.getElementById("target")).then(function(canvas) {
    const imgData = canvas.toDataURL();
