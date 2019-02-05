@@ -16,6 +16,8 @@ window.onload = function(){
 
 var bg = function() {
  var element = document.getElementsByClassName('js-ogp-bg')[0];
+ var emoji = document.getElementsByClassName('js-ogp-emoji')[0];
+ console.log('test' + emoji.dataset.emoji);
 
  for (var i = 0; i < 5; i++){
   var ogpIconRow = document.createElement( "li" );
