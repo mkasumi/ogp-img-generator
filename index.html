@@ -17,21 +17,27 @@
     <label><input type="radio" value="gradient">グラデーション</label>
     <label><input type="radio" value="emoji">絵文字</label>
     <h2>テキストの設定</h2>
-    <input type="text" value="{{newText}}" v-model:value="newText" @keyup.enter="addText" autofocus autocomplete="off">
+    <input type="text" v-model:value="newText" @keyup.enter="addText" autofocus autocomplete="off">
     <input type="color" value=""  v-model:value="newTextColor" @keyup.enter="addTextColor" autofocus autocomplete="off">
-    <h2>絵文字の設定</h2>
-    <input type="text" value=""  v-model:value="newEmoji" @keyup.enter="addEmoji" autofocus autocomplete="off">
-    <h2>グラデーションの設定</h2>
-    <input type="color" value=""  v-model:value="newGradientStart" @keyup.enter="addGradientStart" autofocus autocomplete="off">
-    <input type="color" value="" v-model:value="newGradientEnd" @keyup.enter="addGradientEnd" autofocus autocomplete="off">
+
+    <div v-if="!gradient">
+      <h2>絵文字の設定</h2>
+      <input type="text" value=""  v-model:value="newEmoji" @keyup.enter="addEmoji" autofocus autocomplete="off">
+    </div>
+
+    <div v-if="gradient">
+      <h2>グラデーションの設定</h2>
+      <input type="color" value=""  v-model:value="newGradientStart" @keyup.enter="addGradientStart" autofocus autocomplete="off">
+      <input type="color" value="" v-model:value="newGradientEnd" @keyup.enter="addGradientEnd" autofocus autocomplete="off">
+    </div>
 
     <div id="target" class="c-img-ogp">
 
-        <div class="c-img-ogp__area">
+        <div class="c-img-ogp__area" :style="{color:newTextColor}">
           <p class="c-img-ogp__title">{{newText}}</h2>
         </div>
         <div class="c-img-ogp__bg-wrap">
-          <div class="c-img-ogp__bg">
+          <div class="c-img-ogp__bg" :data-emoji="newEmoji">
             <ul class="c-img-ogp__bg-row js-ogp-bg"></ul>
           </div>
         </div>
