@@ -1,20 +1,13 @@
 import html2canvas from '../../node_modules/html2canvas/dist/html2canvas.js';
 import Vue from '../../node_modules/vue/dist/vue.js';
 window.onload = function(){
- html2canvas(document.getElementById("target")).then(function(canvas) {
-  const imgData = canvas.toDataURL();
-  document.getElementById("result").src = imgData;
- });
+   html2canvas(document.getElementById("target")).then(function(canvas) {
+    const imgData = canvas.toDataURL();
+    document.getElementById("ogp_image").src = imgData;
+   });
+}
 
- //ボタンを押下した際にダウンロードする画像を作る
- html2canvas(document.getElementById("target")).then(function(canvas) {
-  //aタグのhrefにキャプチャ画像のURLを設定
-  const imgData = canvas.toDataURL();
-  document.getElementById("ogp_image").href = imgData;
- });
-};
-
-var bg = function() {
+var genearatePreview = function() {
  var element = document.getElementsByClassName('js-ogp-bg')[0];
  var emoji = document.getElementsByClassName('js-ogp-emoji')[0];
  console.log('test' + emoji.dataset.emoji);
@@ -23,7 +16,7 @@ var bg = function() {
   var ogpIconRow = document.createElement( "li" );
   for (var j = 0; j < 5; j++){
    var ogpIcon = document.createElement( "span" );
-   var textNode = document.createTextNode("🐶");
+   var textNode = document.createTextNode(emoji.dataset.emoji);
    ogpIcon.appendChild(textNode);
    ogpIcon.setAttribute('class','c-img-ogp__icon')
    ogpIconRow.appendChild(ogpIcon);
@@ -34,7 +27,15 @@ var bg = function() {
 };
 
 window.addEventListener("load",function(){
- bg();
+ genearatePreview();
+ //ボタンを押下した際にダウンロードする画像を作る
+   document.getElementById("generate").onclick = function() {
+     html2canvas(document.getElementById("target")).then(function(canvas) {
+      //aタグのhrefにキャプチャ画像のURLを設定
+      const imgData = canvas.toDataURL();
+      document.getElementById("ogp_image").href = imgData;
+     });
+  };
 });
 
 new Vue({
@@ -52,8 +53,7 @@ new Vue({
     return;
    }
    this.newText.push({
-     title: this.newText,
-     titleColor: this.newTextColor
+     title: this.newText
    });
    this.newText = "";
   },
@@ -74,6 +74,7 @@ new Vue({
     emoji: this.newEmoji
    });
    this.newEmoji = "";
+   bg();
   }
  }
 });
