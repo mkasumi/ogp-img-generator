@@ -21,8 +21,7 @@ new Vue({
  data: {
   newText: 'イヌかわいい',
   newTextColor: '#F45C63',
-  newEmoji: '🐶' +
-    '',
+  newEmoji: '🐶',
   newGradienColorStart: '#FFF',
   newGradienColorEnd: '#F45C63'
  },
