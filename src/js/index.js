@@ -1,11 +1,5 @@
 import html2canvas from '../../node_modules/html2canvas/dist/html2canvas.js';
 import Vue from '../../node_modules/vue/dist/vue.js';
-window.onload = function(){
-   html2canvas(document.getElementById("target")).then(function(canvas) {
-    const imgData = canvas.toDataURL();
-    document.getElementById("ogp_image").src = imgData;
-   });
-}
 
 var genearatePreview = function() {
  var element = document.getElementsByClassName('js-ogp-bg')[0];
@@ -23,20 +17,27 @@ var genearatePreview = function() {
   }
   element.appendChild(ogpIconRow);
  }
-
 };
+
+
+var generateImage = function() {
+ console.log('generate!');
+ html2canvas(document.getElementById("target")).then(function(canvas) {
+  //aタグのhrefにキャプチャ画像のURLを設定
+  const imgData = canvas.toDataURL();
+  document.getElementById("generateImage").href = imgData;
+ });
+}
 
 window.addEventListener("load",function(){
  genearatePreview();
- //ボタンを押下した際にダウンロードする画像を作る
-   document.getElementById("generate").onclick = function() {
-     html2canvas(document.getElementById("target")).then(function(canvas) {
-      //aタグのhrefにキャプチャ画像のURLを設定
-      const imgData = canvas.toDataURL();
-      document.getElementById("ogp_image").href = imgData;
-     });
-  };
+ generateImage();
+
+ // document.getElementById("generateImage").onclick = function() {
+ //  generateImage();
+ // };
 });
+
 
 new Vue({
  el: '#app',
@@ -49,32 +50,13 @@ new Vue({
  },
  methods: {
   addText: function() {
-   if (!this.newText) {
-    return;
-   }
-   this.newText.push({
-     title: this.newText
-   });
-   this.newText = "";
+   generateImage();
   },
   addTextColor: function() {
-   if (!this.newTextColor) {
-    return;
-   }
-   this.newTextColor.push({
-    titleColor: this.newTextColor
-   });
-   this.newTextColor = "";
+   generateImage();
   },
   addEmoji: function() {
-   if (!this.newEmoji) {
-    return;
-   }
-   this.newEmoji.push({
-    emoji: this.newEmoji
-   });
-   this.newEmoji = "";
-   bg();
+   generateImage();
   }
  }
 });

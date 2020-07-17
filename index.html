@@ -17,8 +17,8 @@
     <label><input type="radio" value="gradient">グラデーション</label>
     <label><input type="radio" value="emoji">絵文字</label>
     <h2>テキストの設定</h2>
-    <input type="text" v-model:value="newText" @keyup.enter="addText" autofocus autocomplete="off">
-    <input type="color" v-model:value="newTextColor" @keyup.enter="addTextColor" autofocus autocomplete="off">
+    <input type="text" v-model:value="newText" @keyup="addText" autofocus autocomplete="off">
+    <input type="color" v-model:value="newTextColor" @change="addTextColor" autofocus autocomplete="off">
 
     <!--<div v-if="!gradient">-->
       <h2>絵文字の設定</h2>
@@ -33,7 +33,9 @@
 
     <button id="generate">生成</button>
 
-    <a href="" id="ogp_image" download="ogp_image.png">ダウンロード</a>
+    <!-- <a href="" id="ogp_image" download="ogp_image.png">ダウンロード</a> -->
+
+    <a href="" id="generateImage" download="generateImage.png">ダウンロード</a>
 
     <div id="target" class="c-img-ogp">
         <div class="c-img-ogp__area" :style="{color:newTextColor}">
