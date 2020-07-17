@@ -22,7 +22,7 @@
 
     <!--<div v-if="!gradient">-->
       <h2>絵文字の設定</h2>
-      <input type="text" v-model:value="newEmoji" @keyup.enter="addEmoji" autofocus autocomplete="off">
+      <input type="text" v-model:value="newEmoji" @keyup="addEmoji" autofocus autocomplete="off">
     <!--</div>-->
 
     <!--<div v-if="gradient">-->
@@ -30,10 +30,6 @@
       <!--<input type="color" v-model:value="newGradientStart" @keyup.enter="addGradientStart" autofocus autocomplete="off">-->
       <!--<input type="color" v-model:value="newGradientEnd" @keyup.enter="addGradientEnd" autofocus autocomplete="off">-->
     <!--</div>-->
-
-    <button id="generate">生成</button>
-
-    <!-- <a href="" id="ogp_image" download="ogp_image.png">ダウンロード</a> -->
 
     <a href="" id="generateImage" download="generateImage.png">ダウンロード</a>
 
@@ -43,7 +39,9 @@
         </div>
         <div class="c-img-ogp__bg-wrap">
           <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="newEmoji">
-            <ul class="c-img-ogp__bg-row js-ogp-bg"></ul>
+            <ul class="c-img-ogp__bg-row js-ogp-bg">
+              <li v-for="n in 5"><span class="c-img-ogp__icon" v-for="n in 5">{{newEmoji}}</span></li>
+            </ul>
           </div>
         </div>
     </div>
