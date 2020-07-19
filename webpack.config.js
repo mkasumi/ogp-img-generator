@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const pkg = require('./package.json');
 const babelPlugins = [];
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const config = {
   cache: true,
@@ -39,15 +40,27 @@ const config = {
         options: {
           limit: 20480
         }
+      },
+      {
+       test: /\.vue$/,
+       loader: "vue-loader"
       }
     ]
   },
+ resolve: {
+  // Webpackで利用するときの設定
+  alias: {
+   'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' webpack 1 用
+  },
+  extensions: ["*", ".js", ".vue", ".json"]
+ },
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })
+    }),
+   new VueLoaderPlugin()
   ]
 };
 

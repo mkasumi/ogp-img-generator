@@ -6,50 +6,52 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>OGP Image Generator</title>
+  <link rel="stylesheet" href="./node_modules/rm-emoji-picker/dist/emojipicker.css" />
   <link rel="stylesheet" href="/dest/bundle.min.css">
+  <style>
+    #container {
+      position: relative;
+      display: block;
+      background: #eee;
+    }
+
+    #text-input {
+      position: relative;
+      display: block;
+      /*margin: 0 auto;*/
+      width: 300px;
+      height: 40px;
+      border: 1px solid #eee;
+      background: #fff;
+    }
+
+    #text-input:empty:before{
+      content: attr(placeholder);
+      display: block;
+    }
+
+    .wrapper{
+      position: relative;
+      /*top: 100px;*/
+      /*margin: 0 auto;*/
+      width: 330px;
+      padding: 10px;
+    }
+
+    #icon{
+      color: #000;
+      position: absolute;
+      display: block;
+      right: 0;
+    }
+    #icon:hover{
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-  <div id="app">
-
-    <h1>HTMLからOGPイメージを作るサンプル</h1>
-
-    <label><input type="radio" value="gradient">グラデーション</label>
-    <label><input type="radio" value="emoji">絵文字</label>
-    <h2>テキストの設定</h2>
-    <input type="text" v-model:value="newText" @keyup="addText" autofocus autocomplete="off">
-    <input type="color" v-model:value="newTextColor" @change="addTextColor" autofocus autocomplete="off">
-
-    <!--<div v-if="!gradient">-->
-      <h2>絵文字の設定</h2>
-      <input type="text" v-model:value="newEmoji" @keyup="addEmoji" autofocus autocomplete="off">
-    <!--</div>-->
-
-    <!--<div v-if="gradient">-->
-      <!--<h2>グラデーションの設定</h2>-->
-      <!--<input type="color" v-model:value="newGradientStart" @keyup.enter="addGradientStart" autofocus autocomplete="off">-->
-      <!--<input type="color" v-model:value="newGradientEnd" @keyup.enter="addGradientEnd" autofocus autocomplete="off">-->
-    <!--</div>-->
-
-    <a href="" id="generateImage" download="generateImage.png">ダウンロード</a>
-
-    <div id="target" class="c-img-ogp">
-        <div class="c-img-ogp__area" :style="{color:newTextColor}">
-          <p class="c-img-ogp__title">{{newText}}</p>
-        </div>
-        <div class="c-img-ogp__bg-wrap">
-          <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="newEmoji">
-            <ul class="c-img-ogp__bg-row js-ogp-bg">
-              <li v-for="n in 5"><span class="c-img-ogp__icon" v-for="n in 5">{{newEmoji}}</span></li>
-            </ul>
-          </div>
-        </div>
-    </div>
-
-    <hr>
-
-  
-  </div>
+  <div id="app"></div>
 
   <script src="/dest/bundle.js"></script>
 </body>

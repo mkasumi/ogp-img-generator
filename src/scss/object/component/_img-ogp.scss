@@ -20,11 +20,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 744px;
-		height: 475px;
+		width: 80%;
+		height: 80%;
 		background: #FFF;
 		box-shadow: rgba(0,0,0,0.2) 0 2px 30px;
-		border-radius: 60px;
+		border-radius: 80px;
 		z-index: 1;
 	}
 
@@ -33,8 +33,8 @@
 		right: 0;
 		bottom: 0;
 		overflow: hidden;
-		width: 1200px;
-		height: 630px;
+		width: 100%;
+		height: 100%;
 	}
 
 	&__bg {
