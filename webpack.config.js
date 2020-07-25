@@ -48,6 +48,7 @@ const config = {
     ]
   },
  resolve: {
+  modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   // Webpackで利用するときの設定
   alias: {
    'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' webpack 1 用
