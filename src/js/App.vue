@@ -13,11 +13,8 @@
     <div id="container">
       <h2>絵文字の設定</h2>
       <div class="wrapper">
-<!--        <div contenteditable="true" placeholder="Type here" v-text="newEmoji" @change="addEmoji" id="text-input">{{newEmoji}}</div>-->
-<!--        <Editable></Editable>-->
         <Editable :content="newEmoji" @update="sync"></Editable>
-        <!--        <input type="text" v-model:value="newEmoji" @change="addEmoji" id="text-input" autofocus autocomplete="off" contenteditable="true">-->
-        <i class="fa fa-smile-o" id="icon" aria-hidden="true">a</i>
+        <img id="icon" width="20" height="20" src="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhciIgZGF0YS1pY29uPSJzbWlsZSIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLXNtaWxlIGZhLXctMTYiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDk2IDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjQ4IDhDMTExIDggMCAxMTkgMCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzODUgOCAyNDggOHptMCA0NDhjLTExMC4zIDAtMjAwLTg5LjctMjAwLTIwMFMxMzcuNyA1NiAyNDggNTZzMjAwIDg5LjcgMjAwIDIwMC04OS43IDIwMC0yMDAgMjAwem0tODAtMjE2YzE3LjcgMCAzMi0xNC4zIDMyLTMycy0xNC4zLTMyLTMyLTMyLTMyIDE0LjMtMzIgMzIgMTQuMyAzMiAzMiAzMnptMTYwIDBjMTcuNyAwIDMyLTE0LjMgMzItMzJzLTE0LjMtMzItMzItMzItMzIgMTQuMy0zMiAzMiAxNC4zIDMyIDMyIDMyem00IDcyLjZjLTIwLjggMjUtNTEuNSAzOS40LTg0IDM5LjRzLTYzLjItMTQuMy04NC0zOS40Yy04LjUtMTAuMi0yMy43LTExLjUtMzMuOC0zLjEtMTAuMiA4LjUtMTEuNSAyMy42LTMuMSAzMy44IDMwIDM2IDc0LjEgNTYuNiAxMjAuOSA1Ni42czkwLjktMjAuNiAxMjAuOS01Ni42YzguNS0xMC4yIDcuMS0yNS4zLTMuMS0zMy44LTEwLjEtOC40LTI1LjMtNy4xLTMzLjggMy4xeiI+PC9wYXRoPjwvc3ZnPg==" alt=""></i>
       </div>
     </div>
     <!--</div>-->
@@ -50,7 +47,45 @@
 </template>
 
 <script>
- import Editable from './component/Editable.vue';
+import html2canvas from 'html2canvas';
+import EmojiPicker from "rm-emoji-picker";
+import Editable from './component/Editable.vue';
+
+window.addEventListener("load",function(){
+
+ const icon      = document.getElementById('icon');
+ const container = document.getElementById('container');
+ const input     = document.getElementById('text-input');
+
+ const picker = new EmojiPicker({
+  sheets: {
+   apple   : '../../node_modules/rm-emoji-picker/sheets/sheet_apple_64_indexed_128.png',
+   google  : '../../node_modules/rm-emoji-picker/sheets/sheet_google_64_indexed_128.png',
+   twitter : '../../node_modules/rm-emoji-picker/sheets/sheet_twitter_64_indexed_128.png',
+   emojione: '../../node_modules/rm-emoji-picker/sheets/sheet_emojione_64_indexed_128.png'
+  },
+  positioning : "vertical"
+ });
+ picker.listenOn(icon, container, input);
+
+ setInterval(() => {
+  console.log(picker.getText());
+ }, 3000);
+});
+
+var generateImage = function() {
+ html2canvas(document.getElementById("target"),{scale:2}).then(function(canvas) {
+  //aタグのhrefにキャプチャ画像のURLを設定
+  const imgData = canvas.toDataURL();
+  document.getElementById("generateImage").href = imgData;
+ });
+}
+
+window.addEventListener("load",function(){
+ generateImage();
+});
+
+
 
  export default {
   name: "App",
@@ -74,11 +109,11 @@
     generateImage();
    },
    addEmoji() {
-    console.log('addred emoji');
     generateImage();
    },
    sync(content) {
-    this.newEmoji = content
+    this.newEmoji = content;
+    generateImage();
    },
   }
  };

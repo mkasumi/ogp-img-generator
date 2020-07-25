@@ -112,14 +112,14 @@ a:hover {
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	    flex-direction: column;
-	width: 1200px;
-	height: 630px;
+	width: 600px;
+	height: 315px;
 	text-align: center;
 	background: #EEE;
 }
 .c-img-ogp__title {
 	margin: 0;
-	font-size: 60px;
+	font-size: 40px;
 	font-weight: bold;
 	line-height: 1.3;
 }
@@ -137,9 +137,9 @@ a:hover {
 	width: 80%;
 	height: 80%;
 	background: #FFF;
-	-webkit-box-shadow: rgba(0, 0, 0, .2) 0 2px 30px;
-	        box-shadow: rgba(0, 0, 0, .2) 0 2px 30px;
-	border-radius: 80px;
+	-webkit-box-shadow: rgba(0, 0, 0, .2) 0 2px 15px;
+	        box-shadow: rgba(0, 0, 0, .2) 0 2px 15px;
+	border-radius: 40px;
 	z-index: 1;
 }
 .c-img-ogp__bg-wrap {
@@ -152,12 +152,12 @@ a:hover {
 }
 .c-img-ogp__bg {
 	position: absolute;
-	top: -50px;
-	left: -100px;
-	right: -100px;
-	bottom: -100px;
-	width: 1400px;
-	height: 830px;
+	top: -30px;
+	left: -20px;
+	right: -20px;
+	bottom: -30px;
+	width: 700px;
+	height: 415px;
 }
 .c-img-ogp__bg-row {
 	margin: 0;
@@ -165,16 +165,16 @@ a:hover {
 	list-style: none;
 }
 .c-img-ogp__bg-row li {
-	width: 1500px;
+	width: 800px;
 }
 .c-img-ogp__bg-row li:nth-child(2n) {
 	position: relative;
-	left: -150px;
+	left: -75px;
 }
 .c-img-ogp__icon {
 	display: inline-block;
-	margin: 0 100px;
-	font-size: 100px;
+	margin: 0 50px;
+	font-size: 50px;
 }
 
 /* ------------------------------

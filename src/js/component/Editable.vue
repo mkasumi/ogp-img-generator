@@ -1,7 +1,5 @@
 <template>
-<!--  <div contenteditable="true" v-text="newEmoji" @input="sync" id="text-input">{{newEmoji}}</div>-->
-
-  <div contenteditable="true" placeholder="Type here" v-text="newEmoji" @input="sync" id="text-input">{{newEmoji}}</div>
+  <div contenteditable="true" placeholder="Type here" v-text="innerContent" @input="sync" id="text-input">{{newEmoji}}</div>
 </template>
 
 <script>
@@ -12,17 +10,17 @@
   props: ['content'],
   data () {
    return {
-    newEmoji: ''
+    innerContent: '',
+    newEmoji: 'Type here'
    }
   },
   methods: {
    sync (e) {
-    console.log('sync');
-    this.$emit('update', e.target.innerText)
+    this.$emit('update', e.target.innerHTML)
    }
   },
   mounted() {
-   this.newEmoji = this.content
+   this.innerContent = this.content
   }
  })
 </script>
