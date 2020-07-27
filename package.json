@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "babel-eslint": "^10.0.1",
+    "emoji-mart-vue": "^2.6.6",
     "eslint": "^5.12.0",
     "html2canvas": "^1.0.0-alpha.12",
     "rm-emoji-picker": "^0.4.0",
