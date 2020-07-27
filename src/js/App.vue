@@ -33,7 +33,7 @@
       <div class="c-img-ogp__bg-wrap">
         <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="newEmoji">
           <ul class="c-img-ogp__bg-row js-ogp-bg">
-            <li v-for="n in 5"><span class="c-img-ogp__icon" v-for="n in 5">{{newEmoji}}</span></li>
+            <li v-for="n in 7"><span class="c-img-ogp__icon" v-for="n in 7">{{newEmoji}}</span></li>
           </ul>
         </div>
       </div>

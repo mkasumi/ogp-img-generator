@@ -54,6 +54,7 @@ html {
 }
 
 body {
+	background: #FFF;
   color: map-get($color-text, base);
   font-family: $font-base;
   @include font-size(14);
