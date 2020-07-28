@@ -21,10 +21,7 @@ gulp.task('sass', ()=> {
     .pipe(sass({
       includePaths: ['node_modules']
     }))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions', 'ie 9'],
-      cascade: false
-    }))
+    .pipe(autoprefixer())
     .pipe(csscomb())// *1
     .pipe(rename({
       basename: 'bundle'
