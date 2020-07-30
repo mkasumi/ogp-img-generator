@@ -32,9 +32,12 @@
       </div>
       <div class="c-img-ogp__bg-wrap">
         <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="newEmoji">
-          <ul class="c-img-ogp__bg-row js-ogp-bg">
-            <li v-for="n in 7"><span class="c-img-ogp__icon" v-for="n in 7">{{newEmoji}}</span></li>
-          </ul>
+          <div class="c-img-ogp__bg-row js-ogp-bg">
+            <template v-for="n in 3">
+              <span class="c-img-ogp__icon" v-for="n in 6">{{newEmoji}}</span>
+              <span class="c-img-ogp__icon" v-for="n in 7">{{newEmoji}}</span>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -103,7 +106,11 @@ window.addEventListener("load",function(){
    },
    toggleVisible(){
     this.isVisible = !this.isVisible
-   }
-  }
+   },
+   rotateEmoji:function(event){
+    this.deg++;
+    this.styleObject.transform = convertTranslate(this.deg);
+   },
+  },
  };
 </script>
