@@ -2,5 +2,25 @@
 　　ボタン
 ------------------------------ */
 .c-btn {
+	display: flex;
+	place-content: center;
+	place-items: center;
+	height: 44px;
+	padding: $gutter/2 $gutter;
+	color: map-get($color-neutral, lightest);
+	@include font-size(18);
+	background: map-get($color-neutral, darkest);
+	border-radius: $border-radius-md;
 
+	&:hover,
+	&:visited,
+	&:active,
+	&:focus {
+		color: map-get($color-neutral, lightest);
+		text-decoration: none;
+	}
+
+	&:hover {
+		background: map-get($color-neutral, black);
+	}
 }
