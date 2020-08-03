@@ -63,7 +63,16 @@ import { Emoji, Picker } from 'emoji-mart-vue';
 
 const generateImage = function() {
 
- html2canvas(document.getElementById("target"),{scale:2}).then(function(canvas) {
+ const breakpointMdMin = '768px';
+
+ let ratio = 4;
+
+ if (matchMedia('(min-width: 768px)').matches) {
+  ratio = 2;
+ }
+
+
+ html2canvas(document.getElementById("target"),{scale:ratio}).then(function(canvas) {
   //aタグのhrefにキャプチャ画像のURLを設定
   const imgData = canvas.toDataURL();
   document.getElementById("generateImage").href = imgData;
