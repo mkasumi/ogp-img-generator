@@ -3,13 +3,22 @@
 ------------------------------ */
 .p-content {
 	display:grid;
-	grid-template-rows: 1fr 156px;
-	column-gap: $gutter * 2;
-	max-width: 300px;
+	grid-template-rows: 1fr 1fr;
+	row-gap: $gutter * 2;
 	margin: 0 auto;
 	padding: $gutter * 2;
 	box-sizing: border-box;
 }
+
+.p-content__preview {
+	//margin: 0 0 $gutter * 2 0;
+}
+
+//@media screen and (min-width: $breakpoint-sm-min){
+//	.p-content {
+//		max-width: 300px;
+//	}
+//}
 
 
 @media screen and (min-width: $breakpoint-md-min){

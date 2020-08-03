@@ -679,6 +679,15 @@ a:hover {
 	margin: 0 0 16px 0;
 }
 
+@media screen and (min-width: 768px) {
+	.c-form__label {
+		margin: 0 0 8px 0;
+	}
+	.c-form__control {
+		margin: 0 0 24px 0;
+	}
+}
+
 textarea.c-form__control {
 	padding: 8px;
 	color: #333;
@@ -696,17 +705,38 @@ input[type="color"].c-form__control {
 	background: #FFF;
 }
 
-@media screen and (min-width: 768px) {
-	.c-form__label {
-		margin: 0 0 8px 0;
-	}
-	.c-form__control {
-		margin: 0 0 24px 0;
-	}
+.c-form__emoji {
+	display: flex;
+}
+
+.c-form__emoji {
+	align-items: center;
+	font-size: 48px;
+	font-size: 4.8rem;
+	line-height: 1;
+}
+
+.c-form__emoji-picker {
+	position: relative;
+}
+.c-form__emoji-picker .emoji-mart {
+	position: absolute;
+}
+
+.c-form__emoji-btn {
+	margin: 0 8px;
+	padding: 8px;
+	background: #FFF;
+	border: 0;
+	border-radius: 6px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, .15);
 }
 
 /* ------------------------------
 　　アイコン
+------------------------------ */
+/* ------------------------------
+　　OGPイメージ
 ------------------------------ */
 .c-img-ogp {
 	position: relative;
@@ -716,7 +746,9 @@ input[type="color"].c-form__control {
 	flex-direction: column;
 	width: 300px;
 	height: 150px;
+	margin: 0 auto;
 	font-size: 20px;
+	font-size: 2rem;
 	text-align: center;
 	background: #EEE;
 }
@@ -824,10 +856,8 @@ input[type="color"].c-form__control {
 ------------------------------ */
 .p-content {
 	display: grid;
-	grid-template-rows: 1fr 156px;
-	-moz-column-gap: 16px;
-	     column-gap: 16px;
-	max-width: 300px;
+	grid-template-rows: 1fr 1fr;
+	row-gap: 16px;
 	margin: 0 auto;
 	padding: 16px;
 	box-sizing: border-box;
@@ -842,6 +872,30 @@ input[type="color"].c-form__control {
 	}
 	.p-content__preview {
 		order: 1;
+	}
+}
+
+/* ------------------------------
+　　コントロール
+------------------------------ */
+.p-control {
+	display: grid;
+	-moz-column-gap: 16px;
+	     column-gap: 16px;
+}
+
+.p-control__side {
+	display: grid;
+	-moz-column-gap: 16px;
+	     column-gap: 16px;
+	grid-template-columns: 1fr 1fr;
+	margin: 0 0 16px 0;
+}
+
+@media screen and (min-width: 768px) {
+	.p-control__side {
+		display: flex;
+		flex-direction: row;
 	}
 }
 

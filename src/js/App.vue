@@ -7,25 +7,29 @@
      <div class="p-content">
       <div class="p-content__control">
 
-        <div class="c-form">
+        <div class="c-form p-control__text">
           <label for="text" class="c-form__label">テキスト</label>
           <textarea id="text" class="c-form__control" v-model:value="newText" @keyup="addText" autofocus autocomplete="off"></textarea>
         </div>
 
-        <div class="c-form is-inline">
-          <label for="text-color" class="c-form__label">テキストカラー</label>
-          <input type="color" id="text-color" class="c-form__control" v-model:value="newTextColor" @change="addTextColor" autofocus autocomplete="off">
-        </div>
+        <div class="p-control__side">
+          <div class="c-form is-inline p-control__side-color">
+            <label for="text-color" class="c-form__label">テキストカラー</label>
+            <input type="color" id="text-color" class="c-form__control" v-model:value="newTextColor" @change="addTextColor" autofocus autocomplete="off">
+          </div>
 
-        <div class="c-form">
-          <label for="emoji" class="c-form__label">絵文字</label>
-          <div>
-            <span style="font-size: 48px;">{{newEmoji}}</span>
+          <div class="c-form p-control__side-emoji">
+            <label for="emoji" class="c-form__label">絵文字</label>
+            <div class="c-form__emoji">
+              <span class="c-form__emoji-style">{{newEmoji}}</span>
 
-            <button @click="toggleVisible" id="emoji"><img width="20" height="20" src="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhciIgZGF0YS1pY29uPSJzbWlsZSIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLXNtaWxlIGZhLXctMTYiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDk2IDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjQ4IDhDMTExIDggMCAxMTkgMCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzODUgOCAyNDggOHptMCA0NDhjLTExMC4zIDAtMjAwLTg5LjctMjAwLTIwMFMxMzcuNyA1NiAyNDggNTZzMjAwIDg5LjcgMjAwIDIwMC04OS43IDIwMC0yMDAgMjAwem0tODAtMjE2YzE3LjcgMCAzMi0xNC4zIDMyLTMycy0xNC4zLTMyLTMyLTMyLTMyIDE0LjMtMzIgMzIgMTQuMyAzMiAzMiAzMnptMTYwIDBjMTcuNyAwIDMyLTE0LjMgMzItMzJzLTE0LjMtMzItMzItMzItMzIgMTQuMy0zMiAzMiAxNC4zIDMyIDMyIDMyem00IDcyLjZjLTIwLjggMjUtNTEuNSAzOS40LTg0IDM5LjRzLTYzLjItMTQuMy04NC0zOS40Yy04LjUtMTAuMi0yMy43LTExLjUtMzMuOC0zLjEtMTAuMiA4LjUtMTEuNSAyMy42LTMuMSAzMy44IDMwIDM2IDc0LjEgNTYuNiAxMjAuOSA1Ni42czkwLjktMjAuNiAxMjAuOS01Ni42YzguNS0xMC4yIDcuMS0yNS4zLTMuMS0zMy44LTEwLjEtOC40LTI1LjMtNy4xLTMzLjggMy4xeiI+PC9wYXRoPjwvc3ZnPg==" alt=""></i>
-            </button>
-            <div v-if="isVisible">
-              <Picker @select="changeEmoji" :native="true" :useButton="true" />
+              <div class="c-form__emoji-picker">
+                <button @click="toggleVisible" id="emoji" class="c-form__emoji-btn"><img width="20" height="20" src="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhciIgZGF0YS1pY29uPSJzbWlsZSIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLXNtaWxlIGZhLXctMTYiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDk2IDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjQ4IDhDMTExIDggMCAxMTkgMCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzODUgOCAyNDggOHptMCA0NDhjLTExMC4zIDAtMjAwLTg5LjctMjAwLTIwMFMxMzcuNyA1NiAyNDggNTZzMjAwIDg5LjcgMjAwIDIwMC04OS43IDIwMC0yMDAgMjAwem0tODAtMjE2YzE3LjcgMCAzMi0xNC4zIDMyLTMycy0xNC4zLTMyLTMyLTMyLTMyIDE0LjMtMzIgMzIgMTQuMyAzMiAzMiAzMnptMTYwIDBjMTcuNyAwIDMyLTE0LjMgMzItMzJzLTE0LjMtMzItMzItMzItMzIgMTQuMy0zMiAzMiAxNC4zIDMyIDMyIDMyem00IDcyLjZjLTIwLjggMjUtNTEuNSAzOS40LTg0IDM5LjRzLTYzLjItMTQuMy04NC0zOS40Yy04LjUtMTAuMi0yMy43LTExLjUtMzMuOC0zLjEtMTAuMiA4LjUtMTEuNSAyMy42LTMuMSAzMy44IDMwIDM2IDc0LjEgNTYuNiAxMjAuOSA1Ni42czkwLjktMjAuNiAxMjAuOS01Ni42YzguNS0xMC4yIDcuMS0yNS4zLTMuMS0zMy44LTEwLjEtOC40LTI1LjMtNy4xLTMzLjggMy4xeiI+PC9wYXRoPjwvc3ZnPg==" alt=""></i>
+                </button>
+                <div v-if="isVisible">
+                  <Picker @select="changeEmoji" :native="true" :useButton="true" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -114,10 +118,6 @@ window.addEventListener("load",function(){
    },
    toggleVisible(){
     this.isVisible = !this.isVisible
-   },
-   rotateEmoji:function(event){
-    this.deg++;
-    this.styleObject.transform = convertTranslate(this.deg);
    },
   },
  };
