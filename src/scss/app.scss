@@ -8,8 +8,10 @@
 @import "foundation/mixins";
 @import "foundation/quantity-queries";
 @import "foundation/sass-easing";
+//@import '../../node_modules/sass-mq/mq';
 
 // ベース
+@import "foundation/sanitize";
 @import "foundation/base";
 
 // Component
@@ -24,4 +26,6 @@
 @import "object/component/preview";
 
 // Project
+@import "object/project/header";
+@import "object/project/content";
 @import "object/project/search";

@@ -1,17 +1,22 @@
 <template>
   <div id="app">
 
-    <h1>HTMLからOGPイメージを作るサンプル</h1>
-
     <label><input type="radio" value="gradient">グラデーション</label>
     <label><input type="radio" value="emoji">絵文字</label>
-    <h2>テキストの設定</h2>
-    <input type="text" v-model:value="newText" @keyup="addText" autofocus autocomplete="off">
-    <input type="color" v-model:value="newTextColor" @change="addTextColor" autofocus autocomplete="off">
 
-    <div id="container">
-      <h2>絵文字の設定</h2>
-      <div class="wrapper">
+     <div class="p-content">
+      <div class="p-content__control">
+
+        <div class="c-form">
+          <label for="text" class="c-form__label">テキスト</label>
+          <textarea id="text" class="c-form__control" v-model:value="newText" @keyup="addText" autofocus autocomplete="off"></textarea>
+        </div>
+
+        <div class="c-form">
+          <label for="text-color" class="c-form__label">テキストカラー</label>
+          <input type="color" id="text-color" class="c-form__control" v-model:value="newTextColor" @change="addTextColor" autofocus autocomplete="off">
+        </div>
+
         <div>
           <span style="font-size: 48px;">{{newEmoji}}</span>
 
@@ -21,29 +26,29 @@
             <Picker @select="changeEmoji" :native="true" :useButton="true" />
           </div>
         </div>
-      </div>
-    </div>
 
-    <a href="" id="generateImage" download="generateImage.png">ダウンロード</a>
+        <a href="" id="generateImage" download="generateImage.png">ダウンロード</a>
 
-    <div id="target" class="c-img-ogp">
-      <div class="c-img-ogp__area" :style="{color:newTextColor}">
-        <p class="c-img-ogp__title">{{newText}}</p>
       </div>
-      <div class="c-img-ogp__bg-wrap">
-        <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="newEmoji">
-          <div class="c-img-ogp__bg-row js-ogp-bg">
-            <template v-for="n in 3">
-              <span class="c-img-ogp__icon" v-for="n in 6">{{newEmoji}}</span>
-              <span class="c-img-ogp__icon" v-for="n in 7">{{newEmoji}}</span>
-            </template>
+
+      <div class="p-content__preview">
+        <div id="target" class="c-img-ogp">
+          <div class="c-img-ogp__area" :style="{color:newTextColor}">
+            <p class="c-img-ogp__title">{{newText}}</p>
+          </div>
+          <div class="c-img-ogp__bg-wrap">
+            <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="newEmoji">
+              <div class="c-img-ogp__bg-row js-ogp-bg">
+                <template v-for="n in 3">
+                  <span class="c-img-ogp__icon" v-for="n in 6">{{newEmoji}}</span>
+                  <span class="c-img-ogp__icon" v-for="n in 7">{{newEmoji}}</span>
+                </template>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <hr>
-
+     </div>
 
   </div>
 </template>

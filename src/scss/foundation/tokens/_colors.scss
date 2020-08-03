@@ -18,17 +18,6 @@ $color-variation: (
   08: #944FD1,
 );
 
-$color-variation-darker: (
-  01: #dca900,
-  02: #d96d77,
-  03: #399633,
-  04: #3aafe5,
-  05: #259183,
-  06: #eb7800,
-  07: #e52861,
-  08: #944FD1,
-);
-
 // モノクロ
 $color-neutral: (
   lightest: #FFF,
@@ -36,7 +25,7 @@ $color-neutral: (
   light: #D8D8D8,
   base: #A7A7A7,
   dark: #6E6E6E,
-  darkest: #1F1F1F,
+  darkest: #333333,
 );
 
 $color-state: (
@@ -47,16 +36,10 @@ $color-state: (
 );
 
 $color-text: (
-  base: #1F1F1F,
+  base: #333333,
   base-lighter: #6E6E6E,
   mute: #6E6E6E,
   inverse: #FFF,
-);
-
-$color-bg: (
-  base: #FFF,
-  blog: #E3589B,
-  twitter: #0086C9,
 );
 
 // 各sns色
@@ -66,10 +49,3 @@ $color-sns: (
   facebook: #3b5998,
   hatena: #00a1de,
 );
-
-// 各曜日の色
-$color-day: (
-  saturday: #4A90E2,
-  sunday: #D0021B,
-);
-

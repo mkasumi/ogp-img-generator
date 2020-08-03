@@ -8,49 +8,12 @@
   <title>OGP Image Generator</title>
   <link rel="stylesheet" href="./node_modules/rm-emoji-picker/dist/emojipicker.css" />
   <link rel="stylesheet" href="/dest/bundle.min.css">
-  <style>
-    #container {
-      position: relative;
-      display: block;
-      background: #eee;
-    }
-
-    #text-input {
-      position: relative;
-      display: block;
-      /*margin: 0 auto;*/
-      width: 300px;
-      height: 40px;
-      border: 1px solid #eee;
-      background: #fff;
-    }
-
-    #text-input:empty:before{
-      content: attr(placeholder);
-      display: block;
-    }
-
-    .wrapper{
-      position: relative;
-      /*top: 100px;*/
-      /*margin: 0 auto;*/
-      width: 330px;
-      padding: 10px;
-    }
-
-    #icon{
-      color: #000;
-      position: absolute;
-      display: block;
-      right: 0;
-    }
-    #icon:hover{
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
 
+  <div class="p-header">
+    <h1 class="p-header__title">OGP画像つくるくん</h1>
+  </div>
   <div id="app"></div>
 
   <script src="/dest/bundle.js"></script>

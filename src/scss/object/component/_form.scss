@@ -2,5 +2,42 @@
 　　フォーム
 ------------------------------ */
 .c-form {
+	display: flex;
+	flex-direction: column;
+}
 
+.c-form__label {
+	margin: 0 0 ($gutter/2) 0;
+	@include font-size(16);
+	font-weight: bold;
+}
+
+.c-form__control {
+	margin: 0 0 $gutter * 2 0;
+}
+
+textarea.c-form__control {
+	padding: $gutter;
+	color: map-get($color-neutral,darkest);
+	@include font-size(16);
+	border: 0;
+	border-radius: $border-radius-md;
+	box-shadow: 0 3px 6px rgba(0,0,0,.15);
+}
+
+input[type="color"].c-form__control {
+	border: 0;
+	border-radius: $border-radius-md;
+	box-shadow: 0 3px 6px rgba(0,0,0,.15);
+	background: map-get($color-neutral, lightest);
+}
+
+
+@media screen and (min-width: $breakpoint-md-min){
+	.c-form__label {
+		margin: 0 0 $gutter 0;
+	}
+	.c-form__control {
+		margin: 0 0 $gutter * 3 0;
+	}
 }

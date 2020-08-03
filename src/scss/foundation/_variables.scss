@@ -2,13 +2,7 @@
 //　Design Tokens
 // ------------------------------
 
-
-
-// ------------------------------
-//　ファイルのパス
-// ------------------------------
-$root-theme-img                    : './../images/'; // 画像のパスを上書き
-
+$gutter: 8px;
 
 
 // ------------------------------
@@ -16,21 +10,3 @@ $root-theme-img                    : './../images/'; // 画像のパスを上書
 // ------------------------------
 $sp-header-height                  : 60px;
 $global-nav-height                 : 50px;
-
-
-// ------------------------------
-//　タイポグラフィ
-// ------------------------------
-$heading-large-margin-btm: 15px;
-$heading-medium-margin-btm: 15px;
-$heading-small-margin-btm: 15px;
-
-
-// ------------------------------
-//　エントリー
-// ------------------------------
-$entry-margin-bottom               : 25px;
-
-$entry-element-margin-bottom-sm    : 10px !default;
-$entry-element-margin-bottom-md    : 25px !default;
-$entry-element-margin-bottom-lg    : 30px !default;

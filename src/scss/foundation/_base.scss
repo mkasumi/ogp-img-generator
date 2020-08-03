@@ -2,7 +2,6 @@
 　　ベース
 ------------------------------ */
 
-
 @font-face {
   font-family: "Yu Gothic";
   src: local("Yu Gothic Medium");
@@ -40,6 +39,8 @@
 }
 
 html {
+	color: map-get($color-neutral,darkest);
+	font-size: 10px;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
 }
 @media all and (-ms-high-contrast: none)  {
