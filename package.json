@@ -5,7 +5,7 @@
   "keywords": [
     "Javascript"
   ],
-  "homepage": "http://webuild.design",
+  "homepage": "https://ogp-img-generator.netlify.app/",
   "main": "index.js",
   "config": {
     "local": "http://ogp-img-generator.lab/"
