@@ -53,7 +53,7 @@
 	&__icon {
 		display: inline-block;
 		margin: 0 .5em;
-		font-size: 1.25em;
+		font-size: 1.22em;
 
 			transform: rotate(40deg);
 
@@ -81,6 +81,10 @@
 		&__bg {
 			width: 460px;
 			height: 250px;
+		}
+
+		&__icon {
+			font-size: 1.25em;
 		}
 	}
 }
