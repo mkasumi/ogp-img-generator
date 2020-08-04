@@ -8,7 +8,7 @@
 	justify-content: center;
 	flex-direction: column;
 	width: 300px;
-	height: 150px;
+	height: 157.5px;
 	margin:  0 auto;
 	@include font-size(20);
 	text-align: center;
@@ -46,8 +46,8 @@
 		position: absolute;
 		top: -.8em;
 		left: -1.25em;
-		width: 400px;
-		height: 250px;
+		width: 350px;
+		height: 200px;
 	}
 
 	&__icon {
@@ -69,6 +69,19 @@
 			transform: rotate(-135deg);
 		}
 
+	}
+}
+
+@media screen and (min-width: $breakpoint-sm-min){
+	.c-img-ogp {
+		width: 400px;
+		height: 210px;
+		@include font-size(26);
+
+		&__bg {
+			width: 460px;
+			height: 250px;
+		}
 	}
 }
 

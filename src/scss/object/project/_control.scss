@@ -11,20 +11,30 @@
 }
 
 .p-control__side {
-	display: grid;
-	column-gap: $gutter * 2;
-	grid-template-columns: 1fr 1fr;
 	margin: 0 0 $gutter * 2 0;
 }
 
 .p-control__side-emoji {
+	position: relative;
+}
 
+.p-control__side-picker {
+	position: absolute;
+	left: 0;
+	z-index: 100;
+}
+
+.p-control__side-picker {
+	& > div {
+		width: 100%!important;
+	}
 }
 
 
 @media screen and (min-width: $breakpoint-md-min){
 	.p-control__side {
-		display: flex;
-		flex-direction: row
+		display: grid;
+		column-gap: $gutter * 2;
+		grid-template-columns: 1fr 1fr;
 	}
 }
