@@ -693,15 +693,13 @@ textarea.c-form__control {
 	color: #333;
 	font-size: 16px;
 	font-size: 1.6rem;
-	border: 0;
+	border: 2px solid #D8D8D8;
 	border-radius: 6px;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, .15);
 }
 
 input[type="color"].c-form__control {
-	border: 0;
+	border: 2px solid #D8D8D8;
 	border-radius: 6px;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, .15);
 	background: #FFF;
 }
 
@@ -720,9 +718,8 @@ input[type="color"].c-form__control {
 	margin: 0 8px;
 	padding: 8px;
 	background: #FFF;
-	border: 0;
+	border: 2px solid #D8D8D8;
 	border-radius: 6px;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, .15);
 }
 
 /* ------------------------------
