@@ -11,7 +11,7 @@
         <div class="p-control__side">
           <div class="c-form is-inline p-control__side-color">
             <label for="text-color" class="c-form__label">テキストカラー</label>
-            <input type="color" id="text-color" class="c-form__control" v-model:value="newTextColor" @change="addTextColor" autofocus autocomplete="off">
+            <input type="color" id="text-color" class="c-form__control" v-model:value="newTextColor" @change="addTextColor" autocomplete="off">
           </div>
 
           <div class="c-form p-control__side-emoji">
