@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <a href="" id="generateImage" class="c-btn" download="generateImage.png">ダウンロード</a>
+        <a href="" id="generateImage" class="c-btn" download>ダウンロード</a>
 
       </div>
 
@@ -73,13 +73,12 @@ const generateImage = function() {
   ratio = 2;
  }
 
-
  html2canvas(document.getElementById("target"),{scale:ratio}).then(function(canvas) {
   //aタグのhrefにキャプチャ画像のURLを設定
   const imgData = canvas.toDataURL();
   document.getElementById("generateImage").href = imgData;
  });
-}
+};
 
 window.addEventListener("load",function(){
  generateImage();
@@ -111,19 +110,17 @@ window.addEventListener("load",function(){
    addTextColor() {
     generateImage();
    },
-   addEmoji() {
-    generateImage();
-   },
    sync(content) {
     this.newEmoji = content;
     generateImage();
    },
    changeEmoji(emoji) {
-    this.newEmoji = emoji.native,
-    this.isVisible = !this.isVisible
+    this.newEmoji = emoji.native;
+    this.isVisible = !this.isVisible;
+    setTimeout(generateImage,500);
    },
    toggleVisible(){
-    this.isVisible = !this.isVisible
+    this.isVisible = !this.isVisible;
    },
   },
  };
