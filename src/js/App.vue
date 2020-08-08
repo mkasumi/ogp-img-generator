@@ -59,7 +59,6 @@
 
 <script>
 import html2canvas from 'html2canvas';
-import Editable from './component/Editable.vue';
 import { Emoji, Picker } from 'emoji-mart-vue';
 
 
@@ -88,7 +87,6 @@ window.addEventListener("load",function(){
  export default {
   name: "App",
   components: {
-   Editable,
    Picker,
    Emoji
   },
