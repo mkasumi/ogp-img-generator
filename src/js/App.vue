@@ -5,7 +5,7 @@
 
         <div class="c-form p-control__text">
           <label for="text" class="c-form__label">テキスト</label>
-          <textarea id="text" class="c-form__control" v-model:value="newText" @keyup="addText"　@input="addText" @change="addText" autocomplete="off"></textarea>
+          <textarea id="text" class="c-form__control" v-model:value="newText" @keyup="addText" @input="addText" @change="addText" autocomplete="off"></textarea>
         </div>
 
         <div class="p-control__side">
