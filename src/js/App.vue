@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <a href="" id="generateImage" class="c-btn" download>ダウンロード</a>
+        <a href="" id="generateImage" class="c-btn" download="generateImage.png"">ダウンロード</a>
 
       </div>
 
