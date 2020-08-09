@@ -17,13 +17,12 @@
           <div class="c-form p-control__side-emoji">
             <label for="emoji" class="c-form__label">絵文字</label>
             <div class="c-form__emoji">
-              <span class="c-form__emoji-style">{{newEmoji}}</span>
-
+              <emoji :emoji="emoji" set="twitter" :size="48" />
               <div class="c-form__emoji-picker">
                 <button @click="toggleVisible" id="emoji" class="c-form__emoji-btn"><img width="20" height="20" src="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhciIgZGF0YS1pY29uPSJzbWlsZSIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLXNtaWxlIGZhLXctMTYiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDk2IDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjQ4IDhDMTExIDggMCAxMTkgMCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzODUgOCAyNDggOHptMCA0NDhjLTExMC4zIDAtMjAwLTg5LjctMjAwLTIwMFMxMzcuNyA1NiAyNDggNTZzMjAwIDg5LjcgMjAwIDIwMC04OS43IDIwMC0yMDAgMjAwem0tODAtMjE2YzE3LjcgMCAzMi0xNC4zIDMyLTMycy0xNC4zLTMyLTMyLTMyLTMyIDE0LjMtMzIgMzIgMTQuMyAzMiAzMiAzMnptMTYwIDBjMTcuNyAwIDMyLTE0LjMgMzItMzJzLTE0LjMtMzItMzItMzItMzIgMTQuMy0zMiAzMiAxNC4zIDMyIDMyIDMyem00IDcyLjZjLTIwLjggMjUtNTEuNSAzOS40LTg0IDM5LjRzLTYzLjItMTQuMy04NC0zOS40Yy04LjUtMTAuMi0yMy43LTExLjUtMzMuOC0zLjEtMTAuMiA4LjUtMTEuNSAyMy42LTMuMSAzMy44IDMwIDM2IDc0LjEgNTYuNiAxMjAuOSA1Ni42czkwLjktMjAuNiAxMjAuOS01Ni42YzguNS0xMC4yIDcuMS0yNS4zLTMuMS0zMy44LTEwLjEtOC40LTI1LjMtNy4xLTMzLjggMy4xeiI+PC9wYXRoPjwvc3ZnPg==" alt="絵文字を選択する"></button>
                 <div v-if="isVisible">
                   <div class="p-control__side-picker">
-                  <Picker @select="changeEmoji" :native="true" :useButton="true" />
+                  <Picker @select="changeEmoji" title="絵文字を選んでね" emoji="point_up" set="facebook" useButton="true" />
                   </div>
                 </div>
               </div>
@@ -41,11 +40,11 @@
             <p class="c-img-ogp__title">{{newText}}</p>
           </div>
           <div class="c-img-ogp__bg-wrap">
-            <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="newEmoji">
+            <div class="c-img-ogp__bg js-ogp-emoji" :data-emoji="emoji">
               <div class="c-img-ogp__bg-row js-ogp-bg">
                 <template v-for="n in 3">
-                  <span class="c-img-ogp__icon" v-for="n in 6">{{newEmoji}}</span>
-                  <span class="c-img-ogp__icon" v-for="n in 7">{{newEmoji}}</span>
+                  <span class="c-img-ogp__icon" v-for="n in 6"><emoji :emoji="emoji" set="twitter" :size="emojiSize" :backgroundImageFn="((set, sheetSize) => `/img/${set}/${sheetSize}.png`)" /></span>
+                  <span class="c-img-ogp__icon" v-for="n in 7"><emoji :emoji="emoji" set="twitter" :size="emojiSize" :backgroundImageFn="((set, sheetSize) => `/img/${set}/${sheetSize}.png`)" /></span>
                 </template>
               </div>
             </div>
@@ -61,15 +60,13 @@
 import html2canvas from 'html2canvas';
 import { Emoji, Picker } from 'emoji-mart-vue';
 
-
 const generateImage = function() {
 
  let ratio = 4;
-
- if (matchMedia('(min-width: 430px)').matches) {
-  ratio = 3;
- } else if (matchMedia('(min-width: 630px)').matches) {
+ if (matchMedia('(min-width: 630px)').matches) {
   ratio = 2;
+ } else if (matchMedia('(min-width: 430px)').matches) {
+  ratio = 3;
  }
 
  html2canvas(document.getElementById("target"),{scale:ratio}).then(function(canvas) {
@@ -83,7 +80,6 @@ window.addEventListener("load",function(){
  generateImage();
 });
 
-
  export default {
   name: "App",
   components: {
@@ -91,14 +87,20 @@ window.addEventListener("load",function(){
    Emoji
   },
   data() {
+   let emojiSize = 24;
+   if (matchMedia('(min-width: 630px)').matches) {
+    emojiSize = 48;
+   } else if (matchMedia('(min-width: 430px)').matches) {
+    emojiSize = 32;
+   }
    return {
-    newText: 'イヌかわいい',
+    newText: 'りんごおいしい',
     newTextColor: '#F45C63',
-    newEmoji: '🐶',
     newGradienColorStart: '#FFF',
     newGradienColorEnd: '#F45C63',
-    emoji: ':dog:',
+    emoji: 'apple',
     isVisible: false,
+    emojiSize: emojiSize,
    };
   },
   methods: {
@@ -108,12 +110,8 @@ window.addEventListener("load",function(){
    addTextColor() {
     generateImage();
    },
-   sync(content) {
-    this.newEmoji = content;
-    generateImage();
-   },
    changeEmoji(emoji) {
-    this.newEmoji = emoji.native;
+    this.emoji = emoji.id;
     this.isVisible = !this.isVisible;
     setTimeout(generateImage,500);
    },
