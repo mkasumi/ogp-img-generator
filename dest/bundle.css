@@ -778,7 +778,7 @@ input[type="color"].c-form__control {
 .c-img-ogp__icon {
 	display: inline-block;
 	margin: 0 .5em;
-	font-size: 1.22em;
+	font-size: 1.3em;
 	transform: rotate(40deg);
 }
 .c-img-ogp__icon:nth-child(2n+1) {
@@ -816,6 +816,9 @@ input[type="color"].c-form__control {
 	.c-img-ogp__bg {
 		width: 700px;
 		height: 415px;
+	}
+	.c-img-ogp__icon {
+		font-size: 1.3em;
 	}
 }
 
