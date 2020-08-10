@@ -734,8 +734,8 @@ input[type="color"].c-form__control {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	width: 300px;
-	height: 157.5px;
+	width: 240px;
+	height: 120px;
 	margin: 0 auto;
 	font-size: 20px;
 	font-size: 2rem;
@@ -777,8 +777,8 @@ input[type="color"].c-form__control {
 }
 .c-img-ogp__icon {
 	display: inline-block;
-	margin: 0 .5em;
-	font-size: 1.3em;
+	margin: 0 .4em;
+	font-size: 1.2em;
 	transform: rotate(40deg);
 }
 .c-img-ogp__icon:nth-child(2n+1) {
@@ -803,6 +803,7 @@ input[type="color"].c-form__control {
 		height: 250px;
 	}
 	.c-img-ogp__icon {
+		margin: 0 .5em;
 		font-size: 1.25em;
 	}
 }

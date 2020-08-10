@@ -62,7 +62,7 @@ import { Emoji, Picker } from 'emoji-mart-vue';
 
 const generateImage = function() {
 
- let ratio = 4;
+ let ratio = 5;
  if (matchMedia('(min-width: 630px)').matches) {
   ratio = 2;
  } else if (matchMedia('(min-width: 430px)').matches) {
