@@ -63,7 +63,7 @@
     "rm-emoji-picker": "^0.4.0",
     "sanitize.css": "^11.0.1",
     "sass-mq": "^5.0.1",
-    "vue": "^2.6.11",
+    "vue": "^3.0.0",
     "vue-color": "^2.7.0"
   },
   "repository": {}
